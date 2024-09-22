@@ -36,34 +36,28 @@ class _CartScreenState extends State<CartScreen> {
                 child: ListView.builder(
                     itemCount: basket.cart.length ,
                     itemBuilder: (context, index){
-                    if (basket.cart.isEmpty){
-                      return const Center(child: Text("Cart is Empty"));
-                    }
-                    else
-                    {
-                      Dismissible(
-                        key: Key(basket.cart[index].toString()),
-                        onDismissed: (direction){
-                          if (direction == DismissDirection.startToEnd)
-                          {
-                            basket.removefromCart(index);
-                          } else if (direction == DismissDirection.endToStart) {
-                            basket.removefromCart(index);
-                          }
-                        },
-                        child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child:
-                              CartItemCard(
-                                productName: basket.cart[index]['Product Name'],
-                                price: basket.cart[index]['Price'],
-                                productUrl: basket.cart[index]['Image location'],
-                                quantity: 1,
-                              ),
-                            )),
-                      );
-                    }
+                    return Dismissible(
+                      key: Key(basket.cart[index].toString()),
+                      onDismissed: (direction){
+                        if (direction == DismissDirection.startToEnd)
+                        {
+                          basket.removefromCart(index);
+                        } else if (direction == DismissDirection.endToStart) {
+                          basket.removefromCart(index);
+                        }
+                      },
+                      child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child:
+                            CartItemCard(
+                              productName: basket.cart[index]['Product Name'],
+                              price: basket.cart[index]['Price'],
+                              productUrl: basket.cart[index]['Image location'],
+                              quantity: 1,
+                            ),
+                          )),
+                    );
                 }),
               ),
               TotalCard(
