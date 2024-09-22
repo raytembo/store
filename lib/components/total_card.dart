@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TotalCard extends StatelessWidget {
-  const TotalCard({super.key});
+   TotalCard({super.key, required this.orderAmount, required this.tax, required this.totalPayment, required this.onTap});
+
+  int orderAmount;
+  int tax;
+  int totalPayment;
+  final onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,43 +22,46 @@ class TotalCard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                 Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    Text("Order Amount",style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("3000")
+                    const Text("Order Amount",style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(orderAmount.toString())
                   ],),
                 ),
                 const SizedBox(height: 10,),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    Text("Tax",style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("300")
+                    const Text("Tax",style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(tax.toString())
                   ],),
                 ),
                 const SizedBox(height: 10,),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    Text("Total Payment",style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("3300")
+                    const Text("Total Payment",style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(totalPayment.toString())
                   ],),
                 ),
                 const SizedBox(height: 10,),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Container(
-                    width: 300,
-                    height:50,
-                    color: Colors.indigo,
-                    child: const Center(child: Text("Checkout",style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),)),
+                GestureDetector(
+                  onTap: onTap,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      width: 300,
+                      height:50,
+                      color: Colors.indigo,
+                      child: const Center(child: Text("Checkout",style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),)),
+                    ),
                   ),
                 )
 

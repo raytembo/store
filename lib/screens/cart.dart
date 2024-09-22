@@ -41,9 +41,9 @@ class _CartScreenState extends State<CartScreen> {
                       onDismissed: (direction){
                         if (direction == DismissDirection.startToEnd)
                         {
-                          basket.cart.removeAt(index);
+                          basket.removefromCart(index);
                         } else if (direction == DismissDirection.endToStart) {
-                          basket.cart.removeAt(index);
+                          basket.removefromCart(index);
                         }
                       },
                       child: Center(
@@ -60,7 +60,14 @@ class _CartScreenState extends State<CartScreen> {
                     );
                 }),
               ),
-              const TotalCard(),
+              TotalCard(
+                onTap: (){
+                  basket.totalPay(basket.cart, basket.total);
+                },
+                tax: basket.taxation(basket.taxfree).floor(),
+                totalPayment: basket.totalPayment(basket.grandTotal,basket.taxfree).floor(),
+                orderAmount: basket.totalPay(basket.cart, basket.total),
+              ),
         
             ],
           ),
