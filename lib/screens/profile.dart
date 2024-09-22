@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:store/components/profile_buttons.dart';
+import 'package:store/components/profile_pic.dart';
+import 'package:store/screens/home.dart';
 
 
 class ProfileScreen extends StatelessWidget {
@@ -6,7 +9,46 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    List settingsName=[
+      "Your Profile",
+      "Settings",
+      "Payment Method",
+      "Help Center",
+      "Privacy Policy",
+    ];
+    return Scaffold(
+      backgroundColor: Colors.indigo[50],
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(height: 20,),
+            const Center(child: Text("Profile",style: TextStyle(fontWeight: FontWeight.bold, fontSize:20),)),
+            const SizedBox(height: 20,),
+            const ProfilePic(),
+            const SizedBox(height: 20,),
+            const Text("User",style: TextStyle(fontWeight: FontWeight.w600, fontSize:20)),
+            const SizedBox(height: 20,),
+            SizedBox(
+              height: 400,
+              child: ListView.builder(
+                itemCount: settingsName.length,
+                  itemBuilder: (context, index){
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ProfileButtons(buttonText: settingsName[index], onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomeScreen()),
+                    );
+                  }),
+                );
+              })
+            ),
+            const SizedBox(height: 50,),
+            const Text("Log Out", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 15),)
+          ],
+        ),
+      ),
     );
   }
 }
