@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:store/components/profile_buttons.dart';
 import 'package:store/components/profile_pic.dart';
 import 'package:store/screens/home.dart';
+import 'package:store/screens/others/help.dart';
+import 'package:store/screens/others/payment.dart';
+import 'package:store/screens/others/privacy.dart';
+import 'package:store/screens/others/settings.dart';
 
 
 class ProfileScreen extends StatelessWidget {
@@ -9,13 +13,22 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     List settingsName=[
-      "Your Profile",
       "Settings",
       "Payment Method",
       "Help Center",
       "Privacy Policy",
     ];
+
+    List settingScreens = [
+      const SettingsScreen(),
+      const PaymentScreen(),
+      const HelpScreen(),
+      const PrivacyScreen(),
+    ];
+
+
     return Scaffold(
       backgroundColor: Colors.indigo[50],
       body: SafeArea(
@@ -38,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
                   child: ProfileButtons(buttonText: settingsName[index], onTap: (){
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const HomeScreen()),
+                      MaterialPageRoute(builder: (context) => settingScreens[index]),
                     );
                   }),
                 );

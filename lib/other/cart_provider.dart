@@ -6,12 +6,14 @@ class CartProvider with ChangeNotifier{
   int total = 0;
   int taxfree= 0;
   double grandTotal= 0;
+  int count = 1;
 
 void addtoCart(productName,price, imageUrl){
   Map<String, dynamic> cartItem= {
     "Product Name":productName,
     "Price":price,
-    "Image location":imageUrl
+    "Image location":imageUrl,
+    "quantity":count
   };
   cart.add(cartItem);
   notifyListeners();
@@ -46,6 +48,21 @@ double totalPayment(grandTotal, taxfee){
   grandTotal = taxation(taxfee) + totalPay(cart, total);
   notifyListeners();
   return grandTotal;
+}
+
+double addquantity(){
+  double finalquantity;
+  finalquantity = (count *totalPay(cart, total)) as double;
+  notifyListeners();
+  return finalquantity;
+}
+
+double subtractquantity(){
+    count--;
+    double finalquantity;
+    finalquantity = (count *totalPay(cart, total)) as double;
+    notifyListeners();
+    return finalquantity;
 }
 
 

@@ -8,7 +8,7 @@ class ProfilePic extends StatelessWidget {
     return const CircleAvatar(
       backgroundColor: Colors.grey,
       radius: 60,
-
+      child: Icon(Icons.person,size: 80,),
     );
   }
 }

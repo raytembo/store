@@ -16,26 +16,45 @@ class HomeScreen extends StatelessWidget {
       "Samsung Galaxy S24",
       "Iphone 16",
       "Rabbit R1",
-      "Smartwatch Ultra"
+      "Smartwatch Ultra",
+      "Hard Drive",
+      "JBL Flip 6",
+      "Stadia",
+      "Wireless Charger"
     ];
 
     List productDescription = [
       "This is An S24",
       "This is an IOS 18",
       "This Has Ai",
-      "More than a Wrist watch"
+      "More than a Wrist watch",
+      "Expand your storage",
+      "Rich Sounds",
+      "Better Gaming Experience",
+      "Fast Charging"
+
     ];
+
     List imageUrls = [
       "assets/galaxy s24.jpeg",
       "assets/iphone 16.jpg",
       "assets/rabbit r1.jpg",
-      "assets/smartwatch.jpg"
+      "assets/smartwatch.jpg",
+      "assets/hdd.jpg",
+      "assets/JBL-flip-6.jpg",
+      "assets/stadia.jpg",
+      "assets/wireless charger.jpg"
     ];
+
     List prices = [
       2000000,
       1800000,
       300000,
-      250000
+      250000,
+      50000,
+      150000,
+      200000,
+      90000,
     ];
 
 
@@ -85,10 +104,17 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const PromoCard(),
+              const SizedBox(height: 20,),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Row(children: [
+                  Text("For You",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20),),
+                ],),
+              ),
               Container(
                 color: Colors.transparent,
                 width: 500,
-                height: 500,
+                height: 800,
                 child: GridView.builder(
                   gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -100,6 +126,11 @@ class HomeScreen extends StatelessWidget {
                       productName: productNames[index],
                       imageUrl: imageUrls[index],
                       onTap: (){
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Added to cart"))
+                        );
+
+
                         final basket = Provider.of<CartProvider>(context,listen: false);
                         basket.addtoCart(productNames[index], prices[index], imageUrls[index]);
                        print(basket.cart);
@@ -109,7 +140,7 @@ class HomeScreen extends StatelessWidget {
                       },
                     );
                   },
-                  itemCount: 4,
+                  itemCount: prices.length,
                 ),
               ),
             ],
