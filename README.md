@@ -11,12 +11,10 @@ This is a mobile application built using the **Flutter** framework, designed for
 - **Shopping Cart**: Add products to the cart, update quantities, and remove items.
 - **Checkout and Payment**: Proceed to checkout and make secure payments using various payment methods.
 - **Order History**: View past orders and track delivery status.
-- **Wishlist**: Save products for later in a personal wishlist.
 - **Push Notifications**: Receive updates on new products, sales, and order status.
 
 ## Screenshots
 
-*Add screenshots of your app here.*
 
 ![App Screenshot](assets/auth.png)
 ![App Screenshot](assets/home.png)
