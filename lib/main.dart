@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:store/other/cart_provider.dart';
 import 'package:store/screens/auth/sign_in.dart';
-import 'package:store/screens/auth/sign_out.dart';
-import 'package:store/screens/nav.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
