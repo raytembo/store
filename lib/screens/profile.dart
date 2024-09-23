@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/components/profile_buttons.dart';
 import 'package:store/components/profile_pic.dart';
+import 'package:store/screens/auth/sign_in.dart';
 import 'package:store/screens/home.dart';
 import 'package:store/screens/others/help.dart';
 import 'package:store/screens/others/payment.dart';
@@ -58,7 +59,14 @@ class ProfileScreen extends StatelessWidget {
               })
             ),
             const SizedBox(height: 50,),
-            const Text("Log Out", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 15),)
+            GestureDetector(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignInScreen()),
+                );
+              },
+                child: const Text("Log Out", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 15),))
           ],
         ),
       ),

@@ -57,13 +57,20 @@ class HelpScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30,),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Container(
-              width: 300,
-              height: 50,
-              color: Colors.indigo,
-              child: const Center(child: Text("Submit",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),)),
+          GestureDetector(
+            onTap: (){
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("Message has been submitted")),
+              );
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                width: 300,
+                height: 50,
+                color: Colors.indigo,
+                child: const Center(child: Text("Submit",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),)),
+              ),
             ),
           ),
           const SizedBox(height: 30,),
@@ -77,19 +84,27 @@ class HelpScreen extends StatelessWidget {
               Divider()
             ],),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Container(
-              width: 300,
-              height: 50,
-              color: Colors.indigo,
-              child:  const Icon(Icons.message,color: Colors.white,size: 30,)
+          GestureDetector(
+            onTap: (){
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("SMS Loading")),);
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                width: 300,
+                height: 50,
+                color: Colors.indigo,
+                child:  const Icon(Icons.message,color: Colors.white,size: 30,)
+              ),
             ),
           ),
           const SizedBox(height: 30,),
           GestureDetector(
             onTap: () {
-
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("Calling TechSupport")),
+              );
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),

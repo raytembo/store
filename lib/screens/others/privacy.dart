@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:store/components/headline.dart';
 
 class PrivacyScreen extends StatelessWidget {
@@ -20,13 +22,31 @@ class PrivacyScreen extends StatelessWidget {
           const Text("We take reasonable measures to protect your information from unauthorized access."),
           const Text("We may update this policy from time to time. Please check back regularly for changes."),
           const Text("If you have any questions about this policy, please contact us at raytembo23@yahoo.com",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500)),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Container(
-              width: 80,
-              height: 40,
-              color: Colors.indigo,
-              child: const Icon(Icons.info,color: Colors.white,),
+          GestureDetector(
+            onTap: (){
+              showBottomSheet(context: context, builder: (context){
+                return Container(
+                  width: 400,
+                  height: 800,
+                  color: Colors.white,
+                  child:  Column(children: [
+                    QrImageView(
+                      data: '+265999868802',
+                      version: QrVersions.auto,
+                      size: 200.0,
+                    ),
+                  ],),
+                );
+              });
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                width: 80,
+                height: 40,
+                color: Colors.indigo,
+                child: const Icon(Icons.info,color: Colors.white,),
+              ),
             ),
           ),
           const Row(

@@ -129,8 +129,6 @@ class HomeScreen extends StatelessWidget {
                         ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text("Added to cart"))
                         );
-
-
                         final basket = Provider.of<CartProvider>(context,listen: false);
                         basket.addtoCart(productNames[index], prices[index], imageUrls[index]);
                        print(basket.cart);
