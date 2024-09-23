@@ -66,25 +66,25 @@ class SignInScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 30,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
-                    width: 90 ,
-                    height: 90,
-                    color: Colors.grey,
+                    width: 60 ,
+                    height: 60,
+                    color: Colors.white,
                     child:  const Image(image: AssetImage('assets/apple.png'),width: 100,height: 100,),
                   ),
                 ),
-                const SizedBox(width: 20,),
+                const SizedBox(width: 30,),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
-                    width: 90 ,
-                    height: 90,
+                    width: 60 ,
+                    height: 60,
                     color: Colors.white,
                     child:  const Image(image: AssetImage('assets/google.png'),width: 100,height: 100,),
                   ),
