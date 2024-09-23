@@ -1,4 +1,4 @@
-# Electronics Store Flutter App
+# Store
 
 This is a mobile application built using the **Flutter** framework, designed for an electronics store. The app allows users to browse, search, and purchase a wide variety of electronic products. Additionally, users can view product details, manage their cart, and make secure payments through the app.
 
